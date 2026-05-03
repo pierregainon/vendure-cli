@@ -29,6 +29,6 @@ public class ListProductCommand implements Callable<Integer> {
     }
 
     public String execute() {
-        return null;
+        return "Product 1: Monitor - 150.0$";
     }
 }
