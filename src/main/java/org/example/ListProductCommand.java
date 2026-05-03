@@ -15,7 +15,6 @@ public class ListProductCommand implements Callable<Integer> {
 
     @Override
     public Integer call() {
-        // Logique de priorité : Option > Variable d'env
         String finalUrl = (url != null) ? url : System.getenv("URL");
 
         System.out.println("Utilisation de l'URL : " + finalUrl);
@@ -27,5 +26,9 @@ public class ListProductCommand implements Callable<Integer> {
             System.out.println("1  | Monitor | 150.0$");
         }
         return 0;
+    }
+
+    public String execute() {
+        return null;
     }
 }
