@@ -2,7 +2,6 @@ package org.example;
 
 public class GraphQLServiceTest {
 
-    // Petit outil de secours pour valider nos tests sans dépendre de JUnit
     private static void assertTrue(boolean condition) {
         if (!condition) {
             throw new AssertionError("La condition est fausse !");
@@ -15,7 +14,6 @@ public class GraphQLServiceTest {
         }
     }
 
-    // Un main simple pour que tu puisses l'exécuter directement d'un clic
     public static void main(String[] args) {
         GraphQLServiceTest testSuite = new GraphQLServiceTest();
 

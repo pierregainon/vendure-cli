@@ -12,10 +12,8 @@ public class ListProductCommand implements Runnable {
     public void run() {
         System.out.println("Connexion au serveur Vendure...");
 
-        // On instancie notre classe de requête GraphQL conçue à l'étape précédente
         ProductsListRequest request = new ProductsListRequest();
 
-        // Log de debug pour montrer à l'assistant que la requête GraphQL est bien générée
         System.out.println("Requête envoyée : " + request.getQuery());
         System.out.println("----------------------------------------------");
 
