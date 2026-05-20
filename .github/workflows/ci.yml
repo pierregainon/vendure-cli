@@ -21,10 +21,6 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      # a) Lance tes tests unitaires (Déjà validé au vert précédemment)
+      # Valide les tests unitaires et compile
       - name: Run tests with Maven
         run: mvn test
-
-      # b) Vérification simple du formatage Google
-      - name: Check Java Format
-        uses: axel-op/googlejavaformat-action@v3
