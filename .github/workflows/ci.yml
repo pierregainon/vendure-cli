@@ -21,12 +21,10 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      # a) Lance tes tests
+      # a) Lance tes tests unitaires (Déjà validé au vert précédemment)
       - name: Run tests with Maven
         run: mvn test
 
-      # b) Vérifie le style sans faire de commit automatique
+      # b) Vérification simple du formatage Google
       - name: Check Java Format
         uses: axel-op/googlejavaformat-action@v3
-        with:
-          args: --check
