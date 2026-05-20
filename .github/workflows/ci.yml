@@ -21,15 +21,12 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+      # a) Lance tes tests
       - name: Run tests with Maven
         run: mvn test
 
-      - name: Fix Java Format
+      # b) Vérifie le style sans faire de commit automatique
+      - name: Check Java Format
         uses: axel-op/googlejavaformat-action@v3
         with:
-          args: --replace
-
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "style: auto format Java code to Google Style"
+          args: --check
