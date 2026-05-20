@@ -2,6 +2,7 @@ package org.example;
 
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
+
 import java.util.concurrent.Callable;
 
 @Command(name = "list", description = "Affiche les produits")
