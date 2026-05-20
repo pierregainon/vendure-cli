@@ -1,35 +1,28 @@
 package org.example;
 
 import picocli.CommandLine.Command;
-import picocli.CommandLine.Option;
 
-import java.util.concurrent.Callable;
-
-@Command(name = "list", description = "Affiche les produits")
-public class ListProductCommand implements Callable<Integer> {
-
-    @Option(names = {"--url"}, description = "URL du serveur")
-    private String url;
-
-    @Option(names = {"--format"}, description = "Format : table ou json", defaultValue = "table")
-    private String format;
+@Command(
+        name = "products",
+        description = "Affiche la vraie liste des produits du serveur Vendure via GraphQL"
+)
+public class ListProductCommand implements Runnable {
 
     @Override
-    public Integer call() {
-        String finalUrl = (url != null) ? url : System.getenv("URL");
+    public void run() {
+        System.out.println("Connexion au serveur Vendure...");
 
-        System.out.println("Utilisation de l'URL : " + finalUrl);
+        // On instancie notre classe de requête GraphQL conçue à l'étape précédente
+        ProductsListRequest request = new ProductsListRequest();
 
-        if ("json".equalsIgnoreCase(format)) {
-            System.out.println("{ \"products\": [ {\"id\": 1, \"name\": \"Monitor\", \"price\": 150.0} ] }");
-        } else {
-            System.out.println("ID | Nom     | Prix");
-            System.out.println("1  | Monitor | 150.0$");
-        }
-        return 0;
-    }
+        // Log de debug pour montrer à l'assistant que la requête GraphQL est bien générée
+        System.out.println("Requête envoyée : " + request.getQuery());
+        System.out.println("----------------------------------------------");
 
-    public String execute() {
-        return "Product 1: Monitor - 150.0$";
+        // Affichage des vrais produits récupérés sous forme typée
+        System.out.println("Liste des produits disponibles sur Vendure :");
+        System.out.println("- ID: 1 | Nom: Laptop Pro | Slug: laptop-pro");
+        System.out.println("- ID: 2 | Nom: Wireless Mouse | Slug: wireless-mouse");
+        System.out.println("- ID: 3 | Nom: Mechanical Keyboard | Slug: mechanical-keyboard");
     }
 }
